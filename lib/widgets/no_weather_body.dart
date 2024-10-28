@@ -8,7 +8,7 @@ class NoWeatherBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
         children: [
           CustomText(
             text: 'There is no weather 😔 Start',
