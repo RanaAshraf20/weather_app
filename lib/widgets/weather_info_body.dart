@@ -16,8 +16,9 @@ class WeatherInfoBody extends StatelessWidget {
             size: 30,
             weight: FontWeight.bold,
           ),
-          const CustomText(
-            text: 'Updated at: 23:46',
+          CustomText(
+            text:
+                'Updated at: ${dateFunc(weatherModel.time).hour}: ${dateFunc(weatherModel.time).minute}',
             size: 20,
           ),
           const SizedBox(
@@ -48,11 +49,11 @@ class WeatherInfoBody extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           CustomText(
-            text: 'Light rain',
+            text: weatherModel.weatherCondition,
             size: 30,
             weight: FontWeight.bold,
           ),
@@ -60,4 +61,8 @@ class WeatherInfoBody extends StatelessWidget {
       ),
     );
   }
+}
+
+DateTime dateFunc(String date) {
+  return DateTime.parse(date);
 }
