@@ -28,10 +28,10 @@ class WeatherInfoBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image(
-                image: NetworkImage(weatherModel.iconImage),
+                image: NetworkImage('https:${weatherModel.iconImage}'),
               ),
               CustomText(
-                text: weatherModel.avgTemp.toString(),
+                text: weatherModel.avgTemp.round().toString(),
                 size: 26,
                 weight: FontWeight.bold,
               ),
