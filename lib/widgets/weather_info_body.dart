@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:w/cubits/get_weather_cubit/get_weather_cubit.dart';
 import 'package:w/models/weather_model.dart';
 import 'package:w/shared_components/custom_text.dart';
 
 class WeatherInfoBody extends StatelessWidget {
-  const WeatherInfoBody({super.key, required this.weatherModel});
-  final WeatherModel weatherModel;
+  const WeatherInfoBody({super.key});
+
+  
   @override
   Widget build(BuildContext context) {
+    WeatherModel weatherModel =
+        BlocProvider.of<GetWeatherCubit>(context).weatherModel;
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
