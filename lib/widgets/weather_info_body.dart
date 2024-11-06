@@ -1,46 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:w/models/weather_model.dart';
 import 'package:w/shared_components/custom_text.dart';
 
 class WeatherInfoBody extends StatelessWidget {
-  const WeatherInfoBody({super.key});
-
+  const WeatherInfoBody({super.key, required this.weatherModel});
+  final WeatherModel weatherModel;
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           CustomText(
-            text: 'Beni Suef',
+            text: weatherModel.city,
             size: 30,
             weight: FontWeight.bold,
           ),
-          CustomText(
+          const CustomText(
             text: 'Updated at: 23:46',
             size: 20,
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Image(
-                image: AssetImage('assets/images/clear.png'),
+                image: NetworkImage(weatherModel.iconImage),
               ),
               CustomText(
-                text: '17',
+                text: weatherModel.avgTemp.toString(),
                 size: 26,
                 weight: FontWeight.bold,
               ),
               Column(
                 children: [
                   CustomText(
-                    text: 'maxtemp: 24',
+                    text: 'maxtemp: ${weatherModel.maxTemp.round()}',
                     size: 14,
                   ),
                   CustomText(
-                    text: 'mintemp: 24',
+                    text: 'mintemp: ${weatherModel.minTemp.round()}',
                     size: 14,
                   ),
                 ],
