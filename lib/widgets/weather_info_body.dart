@@ -18,7 +18,7 @@ class WeatherInfoBody extends StatelessWidget {
           ),
           CustomText(
             text:
-                'Updated at: ${dateFunc(weatherModel.time).hour}: ${dateFunc(weatherModel.time).minute}',
+                'Updated at: ${weatherModel.time.hour}:${weatherModel.time.minute}',
             size: 20,
           ),
           const SizedBox(
