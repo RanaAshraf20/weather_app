@@ -4,7 +4,11 @@ class WeatherStates {}
 
 class InitialWeatherState extends WeatherStates {}
 
-class WeatherLoadedState extends WeatherStates {}
+class WeatherLoadedState extends WeatherStates {
+  final WeatherModel weatherModel;
+
+  WeatherLoadedState({required this.weatherModel});
+}
 
 class WeatherFailerState extends WeatherStates {
   final String failerMessage;
