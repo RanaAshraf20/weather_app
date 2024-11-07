@@ -13,23 +13,29 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBarComponent(
-          title: 'Weather',
-          icon: Icons.search,
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) {
-                return const SearchView();
-              }),
-            );
-          },
+        appBar: AppBar(
+          elevation: 10,
+          title: const Text('Weather'),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) {
+                      return const SearchView();
+                    }),
+                  );
+                },
+                icon: const Icon(Icons.search))
+          ],
         ),
         body: BlocBuilder<GetWeatherCubit, WeatherStates>(
             builder: (context, state) {
           if (state is WeatherLoadedState) {
-            return const WeatherInfoBody();
+            return WeatherInfoBody(
+              weatherModel: state.weatherModel,
+            );
           } else if (state is WeatherFailerState) {
-            return Text(state.failerMessage);
+            return Center(child: Text(state.failerMessage));
           } else {
             return const NoWeatherBody();
           }
