@@ -13,14 +13,14 @@ class TextInputField extends StatelessWidget {
     this.labelColor = Colors.blue,
     this.suffixIcon,
     this.enabled = true,
-    this.borderColor = Colors.blue,
+    this.borderColor = Colors.grey,
     this.disabledBorderColor = Colors.blue,
     this.disabledborderRadius = 0,
     this.enabledBorderColor = Colors.blue,
     this.enabledborderRadius = 0,
     this.focusedborderRadius = 0,
     this.contentPadding,
-    this.suffixIconColor= Colors.blue,
+    this.suffixIconColor = Colors.blue,
   });
 
   final TextEditingController? controller;
@@ -50,13 +50,14 @@ class TextInputField extends StatelessWidget {
       onSubmitted: onSubmitted,
       decoration: InputDecoration(
         suffixIcon: Icon(suffixIcon),
-        suffixIconColor: suffixIconColor,
         label: Text(label),
-        labelStyle: TextStyle(color: labelColor),
-        hintText: hintText,
         hintStyle: TextStyle(color: hintColor),
+        hintText: hintText,
         contentPadding: contentPadding,
         border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(borderRadius),
+            borderSide: BorderSide(color: borderColor)),
+        enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(borderRadius),
             borderSide: BorderSide(color: borderColor)),
         // enabledBorder: OutlineInputBorder(
